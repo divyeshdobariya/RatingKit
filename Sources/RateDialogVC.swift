@@ -25,6 +25,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
     var rateNowTitle : String?
     
     var isShowTagListView: Bool = false
+    var TagListHeight: Double = 100
     
     var onDismiss: (() -> Void)?
 //    var selectedTags: [String] = []
@@ -61,6 +62,9 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         for i in feedbackOptions{
             tagListView?.addTag(i)
         }
+        
+        print("tagListView?.calculateTotalHeight() : \(tagListView?.calculateTotalHeight())")
+
         
         if isneverShow{
             btn_neverShow.isHidden = false
@@ -128,7 +132,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         Comonrating = rating
         if rating <= 3 {
             if isShowTagListView{
-                UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = 300 }
+                UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = self.TagListHeight }
             }else{
                 UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = 0 }
             }

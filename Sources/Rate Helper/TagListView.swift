@@ -445,7 +445,10 @@ import UIKit
     }
     
     // MARK: - Events
-    
+    func calculateTotalHeight() -> Double{
+        var height = CGFloat(rows) * (tagViewHeight + marginY)
+        return height
+    }
     @objc func tagPressed(_ sender: TagView!) {
         sender.onTap?(sender)
         delegate?.tagPressed?(sender.currentTitle ?? "", tagView: sender, sender: self)
