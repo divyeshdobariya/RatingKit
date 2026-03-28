@@ -25,7 +25,7 @@ enum AppOpenRatingResult {
 
 public final class RatingTrigger {
 
-    static let shared = RatingTrigger()
+    public static let shared = RatingTrigger()
 
     private let openKey = "rating_app_open"
     private let cancelKey = "rating_cancel_count"
