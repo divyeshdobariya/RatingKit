@@ -131,7 +131,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         Comonrating = rating
         if rating <= 3 {
             if isShowTagListView{
-                UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = self.tagListView?.calculateTotalHeight() ?? 100 }
+                UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = self.tagListView?.calculateTotalHeight() ?? 100 + 100}
             }else{
                 UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = 0 }
             }
