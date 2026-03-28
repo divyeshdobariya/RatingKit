@@ -28,6 +28,8 @@ public enum AppOpenRatingResult {
 public final class RatingTrigger {
 
     public static let shared = RatingTrigger()
+    
+    public var isDebugMode: Bool = false // 👈 ADD THIS
 
     private let openKey = "rating_app_open"
     private let cancelKey = "rating_cancel_count"
@@ -46,6 +48,30 @@ public final class RatingTrigger {
     ) {
         let defaults = UserDefaults.standard
 
+        if isDebugMode {
+               
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                   
+                   guard let rootVC = UIApplication.topViewController() else { return }
+
+                   let viewController = RateDialogVC()
+                   viewController.modalPresentationStyle = .overCurrentContext
+                   viewController.feedbackOptions = feedbackOptions
+                   viewController.isneverShow = true
+                   viewController.titleSTR = title
+                   viewController.subtitleSTR = subtitle
+                   
+                   viewController.onDismiss = {
+                       completion?(.popupShown)
+                   }
+
+                   rootVC.present(viewController, animated: true)
+               }
+
+               return
+           }
+
+        
         resetIfNeeded()
         // Never show again
         if defaults.bool(forKey: neverKey) {
@@ -65,16 +91,13 @@ public final class RatingTrigger {
             return
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
 
             guard
                 let rootVC = UIApplication.topViewController()
             else { return }
 
             let viewController = RateDialogVC()
-//                nibName: "RateDialogVC",
-//                bundle: .module
-//            )
 
             viewController.modalPresentationStyle = .overCurrentContext
             viewController.feedbackOptions = feedbackOptions
@@ -85,7 +108,6 @@ public final class RatingTrigger {
             viewController.onDismiss = {
                 completion?(.popupShown)
             }
-
             rootVC.present(viewController, animated: true)
         }
     }
@@ -100,14 +122,12 @@ public final class RatingTrigger {
             forKey: cancelKey
         )
     }
-
     
     func neverShowAgain() {
         UserDefaults.standard.set(true, forKey: neverKey)
     }
     
     func resetIfNeeded() {
-        
         let key = "rating_last_reset"
         let now = Date()
         

@@ -152,11 +152,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.feedbackTextView?.endEditing(true)
     }
-
-    
 }
-
-
 
 @objc(FeedbackTextView)
 public final class FeedbackTextView: UITextView {
