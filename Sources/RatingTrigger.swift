@@ -41,7 +41,7 @@ public final class RatingTrigger {
     private let cancelKey = "rating_cancel_count"
     private let neverKey = "rating_never_show"
 
-    weak var delegate: BottomRatingPopupDelegate?
+    public weak var delegate: BottomRatingPopupDelegate?
 
     public init() {}
     
