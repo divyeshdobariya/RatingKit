@@ -30,7 +30,13 @@ public final class RatingTrigger {
     public static let shared = RatingTrigger()
     
     public var isDebugMode: Bool = false // 👈 ADD THIS
+    public var isResetMode: Bool = false
+    public var forceShowNeverOption: Bool = false
+    
+    public var ShowNeverOptionCounter: Int = 10
+    public var isShowTagListView: Bool = false
 
+    
     private let openKey = "rating_app_open"
     private let cancelKey = "rating_cancel_count"
     private let neverKey = "rating_never_show"
@@ -42,12 +48,22 @@ public final class RatingTrigger {
     public func appOpened(
         title: String,
         subtitle : String,
+        rateNowTitle: String,
+        MaybeLaterTitle : String,
+        nevershowTitle : String,
         triggerCounts: [Int],
         feedbackOptions: [String],
         completion: ((AppOpenRatingResult) -> Void)? = nil
     ) {
         let defaults = UserDefaults.standard
 
+        // 🔥 RESET MODE → ALWAYS CLEAR DATA
+            if isResetMode {
+                resetRatingFlow()
+                print("🔄 Reset mode active")
+            }
+        
+        // 🔥 DEBUG MODE → ALWAYS SHOW
         if isDebugMode {
                
                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -60,7 +76,10 @@ public final class RatingTrigger {
                    viewController.isneverShow = true
                    viewController.titleSTR = title
                    viewController.subtitleSTR = subtitle
-                   
+                   viewController.rateNowTitle = rateNowTitle
+                   viewController.maybeLaterTitle = MaybeLaterTitle
+                   viewController.neverShowTitle = nevershowTitle
+                   viewController.isShowTagListView = self.isShowTagListView
                    viewController.onDismiss = {
                        completion?(.popupShown)
                    }
@@ -104,6 +123,11 @@ public final class RatingTrigger {
             viewController.isneverShow = RatingTrigger.shared.shouldShowNeverOption()
             viewController.titleSTR = title
             viewController.subtitleSTR = subtitle
+            viewController.rateNowTitle = rateNowTitle
+            viewController.maybeLaterTitle = MaybeLaterTitle
+            viewController.neverShowTitle = nevershowTitle
+            viewController.isShowTagListView = self.isShowTagListView
+            
             // 🔔 Optional: callback when popup finishes
             viewController.onDismiss = {
                 completion?(.popupShown)
@@ -113,7 +137,10 @@ public final class RatingTrigger {
     }
 
     func shouldShowNeverOption() -> Bool {
-            UserDefaults.standard.integer(forKey: cancelKey) >= 10
+        if forceShowNeverOption {
+                return true
+            }
+            return UserDefaults.standard.integer(forKey: cancelKey) >= ShowNeverOptionCounter
         }
     
     func incrementCancel() {

@@ -20,6 +20,11 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
     
     var titleSTR : String?
     var subtitleSTR : String?
+    var neverShowTitle : String?
+    var maybeLaterTitle : String?
+    var rateNowTitle : String?
+    
+    var isShowTagListView: Bool = false
     
     var onDismiss: (() -> Void)?
 //    var selectedTags: [String] = []
@@ -63,9 +68,9 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
             btn_neverShow.isHidden = true
         }
         
-        btn_neverShow.setTitle("Don’t Ask Again", for: .normal)
-        btn_notNow.setTitle("Maybe Later", for: .normal)
-        btn_submit.setTitle("Rate Now", for: .normal)
+        btn_neverShow.setTitle(neverShowTitle, for: .normal)
+        btn_notNow.setTitle(maybeLaterTitle, for: .normal)
+        btn_submit.setTitle(rateNowTitle, for: .normal)
 
         lbl_title.text = titleSTR
         lbl_subtitle.text = subtitleSTR
@@ -122,7 +127,11 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         print("Ended: \(rating)")
         Comonrating = rating
         if rating <= 3 {
-            UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = 0 }
+            if isShowTagListView{
+                UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = 300 }
+            }else{
+                UIView.animate(withDuration: 0.3) { self.feedbackHeightConstraint.constant = 0 }
+            }
         } else {
             UIView.animate(withDuration: 0.2) { self.feedbackHeightConstraint.constant = 0 } completion: { _ in
             }
