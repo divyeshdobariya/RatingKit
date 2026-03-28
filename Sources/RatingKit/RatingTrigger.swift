@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 public protocol BottomRatingPopupDelegate: AnyObject {
     func ratingPopupDidSubmit(
         rating: Int,
@@ -14,12 +15,13 @@ public protocol BottomRatingPopupDelegate: AnyObject {
         feedbackText: String
     )
 }
-enum AppOpenRatingResult {
+public enum AppOpenRatingResult {
     case incremented(count: Int)
     case notTriggered(count: Int)
     case popupShown
     case neverShowEnabled
 }
+
 
 // MARK: - Rating Trigger (Call From Anywhere)
 
@@ -35,7 +37,7 @@ public final class RatingTrigger {
 
     public init() {}
     
-    func appOpened(
+    public func appOpened(
         title: String,
         subtitle : String,
         triggerCounts: [Int],
