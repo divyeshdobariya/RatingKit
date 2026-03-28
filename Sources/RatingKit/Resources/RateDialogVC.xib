@@ -87,7 +87,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qO6-IL-lem">
                             <rect key="frame" x="0.0" y="296" width="393" height="60"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG0-4F-FGA" customClass="CosmosView" customModule="Video_Player" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG0-4F-FGA" customClass="CosmosView">
                                     <rect key="frame" x="56.666666666666657" y="0.0" width="280" height="60"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -129,7 +129,7 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brz-Lv-TIo">
                             <rect key="frame" x="0.0" y="360" width="393" height="0.0"/>
                             <subviews>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROn-fk-26t" customClass="TagListView" customModule="Video_Player" customModuleProvider="target">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROn-fk-26t" customClass="TagListView">
                                     <rect key="frame" x="8" y="0.0" width="377" height="104"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -182,7 +182,7 @@
                                         </mask>
                                     </variation>
                                 </view>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vr8-St-ABR" customClass="FeedbackTextView" customModule="Video_Player" customModuleProvider="target">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vr8-St-ABR" customClass="FeedbackTextView">
                                     <rect key="frame" x="16" y="120" width="361" height="100"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -302,8 +302,8 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="Ygm-jk-VuP"/>
-                            <exclude reference="p0S-8R-KG8"/>
                             <exclude reference="QUD-Mj-Y3d"/>
+                            <exclude reference="p0S-8R-KG8"/>
                             <exclude reference="aGa-0e-nEH"/>
                             <exclude reference="47T-jQ-XS3"/>
                         </mask>
@@ -333,7 +333,7 @@
         </view>
     </objects>
     <resources>
-        <image name="rate_dialog_img" width="1024" height="936"/>
+        <image name="rate_dialog_img" width="1198" height="936"/>
         <image name="star_fill" width="300" height="286"/>
         <image name="star_unfill" width="300" height="286"/>
         <namedColor name="tint-color">

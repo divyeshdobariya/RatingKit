@@ -10,10 +10,10 @@ import StoreKit
 
 public class RateDialogVC: UIViewController, TagListViewDelegate {
 
-    @IBOutlet weak var cosmosViewFull: CosmosView!
+    @IBOutlet public weak var cosmosViewFull: CosmosView!
     @IBOutlet private weak var feedbackHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tagListView: TagListView!
-    @IBOutlet weak var feedbackTextView: FeedbackTextView!
+    @IBOutlet public weak var tagListView: TagListView!
+    @IBOutlet public weak var feedbackTextView: FeedbackTextView!
     var feedbackOptions:  [String] = []
     var isneverShow: Bool = false
     
@@ -156,7 +156,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
 
 
 
-final class FeedbackTextView: UITextView {
+public final class FeedbackTextView: UITextView {
 
     private let placeholderLabel = UILabel()
 
@@ -166,19 +166,19 @@ final class FeedbackTextView: UITextView {
         }
     }
 
-    override var text: String! {
+    public override var text: String! {
         didSet {
             updatePlaceholderVisibility()
         }
     }
 
-    override var attributedText: NSAttributedString! {
+    public override var attributedText: NSAttributedString! {
         didSet {
             updatePlaceholderVisibility()
         }
     }
 
-    override var font: UIFont? {
+    public override var font: UIFont? {
         didSet {
             placeholderLabel.font = font
         }
