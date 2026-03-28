@@ -87,7 +87,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qO6-IL-lem">
                             <rect key="frame" x="0.0" y="296" width="393" height="60"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG0-4F-FGA" customClass="CosmosView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG0-4F-FGA" customClass="CosmosView" customModule="RatingKit">
                                     <rect key="frame" x="56.666666666666657" y="0.0" width="280" height="60"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -129,7 +129,7 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brz-Lv-TIo">
                             <rect key="frame" x="0.0" y="360" width="393" height="0.0"/>
                             <subviews>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROn-fk-26t" customClass="TagListView">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROn-fk-26t" customClass="TagListView" customModule="RatingKit">
                                     <rect key="frame" x="8" y="0.0" width="377" height="104"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -182,7 +182,7 @@
                                         </mask>
                                     </variation>
                                 </view>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vr8-St-ABR" customClass="FeedbackTextView">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vr8-St-ABR" customClass="FeedbackTextView" customModule="RatingKit">
                                     <rect key="frame" x="16" y="120" width="361" height="100"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>

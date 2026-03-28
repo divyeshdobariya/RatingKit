@@ -12,9 +12,8 @@ import UIKit
     @objc optional func tagPressed(_ title: String, tagView: TagView, sender: TagListView) -> Void
     @objc optional func tagRemoveButtonPressed(_ title: String, tagView: TagView, sender: TagListView) -> Void
 }
-
-@IBDesignable
-open class TagListView: UIView {
+@objc(TagListView)
+@IBDesignable open class TagListView: UIView {
     
     @IBInspectable open dynamic var textColor: UIColor = .white {
         didSet {

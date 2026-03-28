@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "RatingKit",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v15)
     ],
     products: [
         .library(

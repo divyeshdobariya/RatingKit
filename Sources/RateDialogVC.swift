@@ -10,10 +10,11 @@ import StoreKit
 
 public class RateDialogVC: UIViewController, TagListViewDelegate {
 
-    @IBOutlet public weak var cosmosViewFull: CosmosView!
+    @IBOutlet public weak var cosmosViewFull: CosmosView?
     @IBOutlet private weak var feedbackHeightConstraint: NSLayoutConstraint!
-    @IBOutlet public weak var tagListView: TagListView!
-    @IBOutlet public weak var feedbackTextView: FeedbackTextView!
+    @IBOutlet public weak var tagListView: TagListView?
+    @IBOutlet public weak var feedbackTextView: FeedbackTextView?
+    
     var feedbackOptions:  [String] = []
     var isneverShow: Bool = false
     
@@ -45,15 +46,15 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        cosmosViewFull.didTouchCosmos = didTouchCosmos
-        cosmosViewFull.rating = 4.0
-        cosmosViewFull.didFinishTouchingCosmos = didFinishTouchingCosmos
+        cosmosViewFull?.didTouchCosmos = didTouchCosmos
+        cosmosViewFull?.rating = 4.0
+        cosmosViewFull?.didFinishTouchingCosmos = didFinishTouchingCosmos
 
-        tagListView.textFont = .systemFont(ofSize: 12.0)// REGULARFont(size: 12.0)
-        tagListView.tagViewHeight = 36
-        tagListView.delegate = self
+        tagListView?.textFont = .systemFont(ofSize: 12.0)// REGULARFont(size: 12.0)
+        tagListView?.tagViewHeight = 36
+        tagListView?.delegate = self
         for i in feedbackOptions{
-            tagListView.addTag(i)
+            tagListView?.addTag(i)
         }
         
         if isneverShow{
@@ -73,12 +74,12 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         lbl_subtitle.font = .systemFont(ofSize: 18.0) //REGULARFont(size: 18.0)
         
         feedbackHeightConstraint.constant = 0
-        feedbackTextView.placeholder = "Tell us more about the issue..."
+        feedbackTextView?.placeholder = "Tell us more about the issue..."
         // Do any additional setup after loading the view.
     }
 
     @IBAction func submitClick(){
-        print("\(cosmosViewFull.rating)")        
+        print("\(cosmosViewFull?.rating)")        
         
         RatingTrigger.shared.neverShowAgain()
 
@@ -86,7 +87,9 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
 //                    log_Event(name: "rating_submit_4")
                     dismiss(animated: true){
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                            SKStoreReviewController.requestReview()
+                            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                                SKStoreReviewController.requestReview(in: scene)
+                            }
                         }
                     }
                 }else{
@@ -95,7 +98,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
                         RatingTrigger.shared.delegate?.ratingPopupDidSubmit(
                             rating: Int(self.Comonrating),
                             selectedTags: Array(self.selectedTags),
-                            feedbackText: self.feedbackTextView.text ?? ""
+                            feedbackText: self.feedbackTextView?.text ?? ""
                                 )
                     }
                 }
@@ -147,7 +150,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
     }
     
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.feedbackTextView.endEditing(true)
+        self.feedbackTextView?.endEditing(true)
     }
 
     
@@ -155,7 +158,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
 
 
 
-
+@objc(FeedbackTextView)
 public final class FeedbackTextView: UITextView {
 
     private let placeholderLabel = UILabel()

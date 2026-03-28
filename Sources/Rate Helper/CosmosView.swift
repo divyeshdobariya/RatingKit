@@ -12,6 +12,7 @@ Example:
 Shows: ★★★★☆ (123)
 
 */
+@objc(CosmosView)
 @IBDesignable open class CosmosView: UIView {
     
   /**
