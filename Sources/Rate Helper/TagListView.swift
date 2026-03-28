@@ -445,7 +445,7 @@ import UIKit
     }
     
     // MARK: - Events
-    func calculateTotalHeight() -> Double{
+    func calculateTotalHeight() -> CGFloat{
         var height = CGFloat(rows) * (tagViewHeight + marginY)
         return height
     }
