@@ -84,9 +84,6 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         btn_notNow.setTitle(maybeLaterTitle, for: .normal)
         
         btn_submit.setTitle(rateNowTitle, for: .normal)
-        
-        btn_submit.tintColor = .white
-        btn_submit.titleLabel?.font = .boldSystemFont(ofSize: 20.0)
         btn_submit.layer.cornerRadius = 16.0
         btn_submit.backgroundColor = tintColor
         
