@@ -445,8 +445,8 @@ import UIKit
     }
     
     // MARK: - Events
-    func calculateTotalHeight() -> CGFloat{
-        var height = CGFloat(rows) * (tagViewHeight + marginY)
+    public func calculateTotalHeight() -> CGFloat{
+        let height = CGFloat(rows) * (tagViewHeight + marginY)
         return height
     }
     @objc func tagPressed(_ sender: TagView!) {
