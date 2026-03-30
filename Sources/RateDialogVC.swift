@@ -103,7 +103,7 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         
         tagListView?.borderColor = tintColor
         tagListView?.tintColor = tintColor
-        
+        tagListView?.tagSelectedBackgroundColor = tintColor
         // Do any additional setup after loading the view.
     }
 
