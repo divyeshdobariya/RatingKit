@@ -100,6 +100,8 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         feedbackTextView?.placeholder = "Tell us more about the issue..."
         
         imgview_main.image = image_main
+        imgview_main.layer.cornerRadius = 10.0
+        
         cosmosViewFull?.emptyImage = image_star_unfill
         cosmosViewFull?.filledImage = image_star_fill
         
