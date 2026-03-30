@@ -30,16 +30,16 @@ public final class RatingTrigger {
     public static let shared = RatingTrigger()
     
     public var isDebugMode: Bool = false // 👈 ADD THIS
-    public var isResetMode: Bool = false
-    public var forceShowNeverOption: Bool = false
+    public var isResetMode: Bool = false // Add for Every Time Reset
+    public var forceShowNeverOption: Bool = false // Forcefully shows never option
     
-    public var ShowNeverOptionCounter: Int = 10
-    public var isShowTagListView: Bool = false
-    public var tintColor: UIColor = .systemBlue
+    public var ShowNeverOptionCounter: Int = 10 // Never Show option Counter After
+    public var isShowTagListView: Bool = false // Show Taglist View
+    public var tintColor: UIColor = .systemBlue // Tint Color of main
 
-    public var rating_filled_image: UIImage?
-    public var rating_empty_image: UIImage?
-    public var mainImage: UIImage?
+    public var rating_filled_image: UIImage? // rating Filled Image
+    public var rating_empty_image: UIImage? // rating EMPTY Image
+    public var mainImage: UIImage? // Main BG image
     
     private let openKey = "rating_app_open"
     private let cancelKey = "rating_cancel_count"
