@@ -24,6 +24,13 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
     var maybeLaterTitle : String?
     var rateNowTitle : String?
     
+    var tintColor : UIColor?
+
+    var image_main : UIImage?
+    var image_star_fill : UIImage?
+    var image_star_unfill : UIImage?
+
+    
     var isShowTagListView: Bool = false
     
     var onDismiss: (() -> Void)?
@@ -36,6 +43,8 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
     @IBOutlet var btn_submit: UIButton!
     @IBOutlet var lbl_title: UILabel!
     @IBOutlet var lbl_subtitle: UILabel!
+
+    @IBOutlet var imgview_main: UIImageView!
 
     public override func viewDidDisappear(_ animated: Bool) {
             super.viewDidDisappear(animated)
@@ -74,7 +83,11 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         btn_neverShow.setTitle(neverShowTitle, for: .normal)
         btn_notNow.setTitle(maybeLaterTitle, for: .normal)
         btn_submit.setTitle(rateNowTitle, for: .normal)
-
+        
+        btn_submit.backgroundColor = tintColor
+        btn_notNow.tintColor = tintColor
+        btn_neverShow.tintColor = tintColor
+        
         lbl_title.text = titleSTR
         lbl_subtitle.text = subtitleSTR
         
@@ -83,6 +96,14 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
         
         feedbackHeightConstraint.constant = 0
         feedbackTextView?.placeholder = "Tell us more about the issue..."
+        
+        imgview_main.image = image_main
+        cosmosViewFull?.emptyImage = image_star_unfill
+        cosmosViewFull?.filledImage = image_star_fill
+        
+        tagListView?.borderColor = tintColor
+        tagListView?.tintColor = tintColor
+        
         // Do any additional setup after loading the view.
     }
 

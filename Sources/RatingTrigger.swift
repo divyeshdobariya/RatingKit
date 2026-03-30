@@ -35,7 +35,9 @@ public final class RatingTrigger {
     
     public var ShowNeverOptionCounter: Int = 10
     public var isShowTagListView: Bool = false
+    public var tintColor: UIColor = .systemBlue
 
+    
     
     private let openKey = "rating_app_open"
     private let cancelKey = "rating_cancel_count"
@@ -80,6 +82,8 @@ public final class RatingTrigger {
                    viewController.maybeLaterTitle = MaybeLaterTitle
                    viewController.neverShowTitle = nevershowTitle
                    viewController.isShowTagListView = self.isShowTagListView
+                   viewController.tintColor = tintColor
+                   
                    viewController.onDismiss = {
                        completion?(.popupShown)
                    }
@@ -127,6 +131,7 @@ public final class RatingTrigger {
             viewController.maybeLaterTitle = MaybeLaterTitle
             viewController.neverShowTitle = nevershowTitle
             viewController.isShowTagListView = self.isShowTagListView
+            viewController.tintColor = self.tintColor
             
             // 🔔 Optional: callback when popup finishes
             viewController.onDismiss = {

@@ -18,6 +18,7 @@
                 <outlet property="cosmosViewFull" destination="PG0-4F-FGA" id="0Dx-pg-AAG"/>
                 <outlet property="feedbackHeightConstraint" destination="KWt-K3-FgN" id="R2p-jc-b7B"/>
                 <outlet property="feedbackTextView" destination="Vr8-St-ABR" id="bUX-bp-QWF"/>
+                <outlet property="imgview_main" destination="EFq-yw-7Vj" id="1jY-ui-0so"/>
                 <outlet property="lbl_subtitle" destination="CKn-f2-64i" id="UE5-CA-d3c"/>
                 <outlet property="lbl_title" destination="WY9-J4-DGk" id="YtW-v0-Uej"/>
                 <outlet property="tagListView" destination="ROn-fk-26t" id="s1O-NU-ojj"/>
