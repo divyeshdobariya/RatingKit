@@ -37,7 +37,9 @@ public final class RatingTrigger {
     public var isShowTagListView: Bool = false
     public var tintColor: UIColor = .systemBlue
 
-    
+    public var rating_filled_image: UIImage?
+    public var rating_empty_image: UIImage?
+    public var mainImage: UIImage?
     
     private let openKey = "rating_app_open"
     private let cancelKey = "rating_cancel_count"
@@ -82,7 +84,10 @@ public final class RatingTrigger {
                    viewController.maybeLaterTitle = MaybeLaterTitle
                    viewController.neverShowTitle = nevershowTitle
                    viewController.isShowTagListView = self.isShowTagListView
-                   viewController.tintColor = tintColor
+                   viewController.tintColor = self.tintColor
+                   viewController.image_main = self.mainImage
+                   viewController.image_star_unfill = self.rating_empty_image
+                   viewController.image_star_fill = self.rating_filled_image
                    
                    viewController.onDismiss = {
                        completion?(.popupShown)
@@ -132,7 +137,10 @@ public final class RatingTrigger {
             viewController.neverShowTitle = nevershowTitle
             viewController.isShowTagListView = self.isShowTagListView
             viewController.tintColor = self.tintColor
-            
+            viewController.image_main = self.mainImage
+            viewController.image_star_unfill = self.rating_empty_image
+            viewController.image_star_fill = self.rating_filled_image
+
             // 🔔 Optional: callback when popup finishes
             viewController.onDismiss = {
                 completion?(.popupShown)
