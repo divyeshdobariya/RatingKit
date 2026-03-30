@@ -115,6 +115,11 @@ public class RateDialogVC: UIViewController, TagListViewDelegate {
                 if Comonrating >= 4 {
 //                    log_Event(name: "rating_submit_4")
                     dismiss(animated: true){
+                        RatingTrigger.shared.delegate?.ratingPopupDidSubmit(
+                            rating: Int(self.Comonrating),
+                            selectedTags: Array(self.selectedTags),
+                            feedbackText: self.feedbackTextView?.text ?? ""
+                                )
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                             if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                                 SKStoreReviewController.requestReview(in: scene)
