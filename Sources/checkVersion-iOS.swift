@@ -42,7 +42,7 @@ struct AppInfo: Decodable {
 public class CheckUpdate: NSObject {
 
     // MARK: - Singleton
-    static let shared = CheckUpdate()
+    public static let shared = CheckUpdate()
 
     // MARK: - TestFlight variable
     var isTestFlight: Bool = false
