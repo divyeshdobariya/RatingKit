@@ -39,7 +39,7 @@ struct AppInfo: Decodable {
 
 
 // MARK: - Check Update Class
-public class CheckUpdate: NSObject {
+public final class CheckUpdate: NSObject {
 
     // MARK: - Singleton
     public static let shared = CheckUpdate()
