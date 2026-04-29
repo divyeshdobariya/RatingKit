@@ -44,6 +44,7 @@ public final class RatingTrigger {
     private let openKey = "rating_app_open"
     private let cancelKey = "rating_cancel_count"
     private let neverKey = "rating_never_show"
+    public var resetOnceKey = "rating_reset_once_done"
 
     public weak var delegate: BottomRatingPopupDelegate?
 
@@ -179,6 +180,17 @@ public final class RatingTrigger {
             resetRatingFlow()
             UserDefaults.standard.set(now, forKey: key)
         }
+    }
+    
+    public func resetOnlyOnceIfNeeded() {
+        let defaults = UserDefaults.standard
+        // If already reset once → skip
+        if defaults.bool(forKey: resetOnceKey) {
+            return
+        }
+        resetRatingFlow()
+        defaults.set(true, forKey: resetOnceKey)
+        print("🔁 Rating reset executed ONLY ONCE")
     }
     
     func resetRatingFlow() {
